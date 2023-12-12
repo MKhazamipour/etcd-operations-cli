@@ -58,7 +58,6 @@ func initConfig() {
 		// Find home directory.
 		home, err := os.UserHomeDir()
 		cobra.CheckErr(err)
-		fmt.Println(home)
 
 		// Search config in home directory with name ".etcd-operations-cli" (without extension).
 		viper.AddConfigPath(home)
