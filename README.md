@@ -12,7 +12,7 @@ To install the CLI, run the following command:
 
 
 ```bash
-go install github.com/mkhazamipour/etcd-operations-cli
+go install github.com/mkhazamipour/etcd-operations-cli@latest
 ```
 
 ## Usage
