@@ -1,40 +1,34 @@
 /*
-Copyright © 2023 NAME HERE <EMAIL ADDRESS>
-
+Copyright © 2023 Morteza Khazamipour me@morteza.dev
 */
 package cmd
 
 import (
+	"context"
 	"fmt"
+	"log"
 
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 )
 
 // defragCmd represents the defrag command
 var defragCmd = &cobra.Command{
 	Use:   "defrag",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "Defrag etcd endpoints provided in config or flags",
+	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("defrag called")
+		etcdep := viper.GetStringSlice("etcd.endpoints")
+		for _, ep := range etcdep {
+			dfresp, err := newClient().Defragment(context.Background(), ep)
+			if err != nil {
+				log.Fatal(err)
+			}
+			fmt.Printf("endpoint: %s / Defragment completed: %v\n", ep, dfresp.Header.GetMemberId())
+		}
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(defragCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// defragCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// defragCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
