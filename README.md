@@ -32,18 +32,18 @@ go install github.com/mkhazamipour/etcd-operations-cli@latest
 
 ### Commands
 
-#### 1. Defrag
+### 1. Defrag
 
 ```bash
 etcd-operations-cli defrag
 ```
 The defrag command performs defragmentation on the specified etcd endpoints.
 
-#### 2. Backup
+### 2. Backup
 
 #### Subcommands
 
-#### Local Backup
+#### Local
 ```bash
 etcd-operations-cli backup local
 ```
@@ -54,7 +54,7 @@ The local subcommand performs a backup of the etcd cluster to the local disk.
 -l, --backup-location: Location to save the etcd backup on disk (e.g., /tmp/backup1.db).
 
 
-#### S3 Backup
+#### S3
 ```bash
 etcd-operations-cli backup s3
 ```
@@ -71,6 +71,15 @@ The s3 subcommand performs a backup of the etcd cluster to S3-compatible storage
 -n, --s3-access-key: S3 Access Key.
 
 -s, --s3-secret-key: S3 Secret Key.
+
+### 3. Size
+
+```bash
+etcd-operations-cli size
+```
+
+Get the DB size for each endpoint
+
 
 ## Configuration
 
