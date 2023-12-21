@@ -6,7 +6,6 @@ caPath:
   cert: "/etc/kubernetes/pki/etcd/peer.crt"
   key: "/etc/kubernetes/pki/etcd/peer.key"
   cacert: "/etc/kubernetes/pki/etcd/ca.crt"
-
 backupLocation: "/tmp/backup"
 s3BucketName: "etcd-backup"
 s3Endpoint: "minio-cluster.cluster.morteza.dev"
