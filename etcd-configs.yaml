@@ -3,9 +3,10 @@ etcd:
     - "127.0.0.1:2379"
     - "127.0.0.2:2379"
 caPath:
-  cert: "/etcd/kubernetes/pki/etcd/certs/cert.crt"
-  key: "/etcd/kubernetes/pki/etcd/certs/cert.key"
-  cacert: "/etcd/kubernetes/pki/etcd/certs/cacert.crt"
+  cert: "/etc/kubernetes/pki/etcd/peer.crt"
+  key: "/etc/kubernetes/pki/etcd/peer.key"
+  cacert: "/etc/kubernetes/pki/etcd/ca.crt"
+
 backupLocation: "/tmp/backup"
 s3BucketName: "etcd-backup"
 s3Endpoint: "minio-cluster.cluster.morteza.dev"
